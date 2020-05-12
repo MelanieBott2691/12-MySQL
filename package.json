@@ -1,0 +1,23 @@
+{
+  "name": "12-mysql",
+  "version": "1.0.0",
+  "description": "bamazon",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelanieBott2691/12-MySQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelanieBott2691/12-MySQL/issues"
+  },
+  "homepage": "https://github.com/MelanieBott2691/12-MySQL#readme"
+}
