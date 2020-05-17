@@ -1,4 +1,6 @@
-// call for dependencies 
+// Challenge #2: Manager View (Next Level)
+
+// Call for dependencies 
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 
@@ -10,56 +12,61 @@ var connection = mysql.createConnection( {
     port: 8889,
     database: "bamazon"
 });
-
+// SETUP
+// ==========================================================================================
 connection.connect(function(err) {
     if (err) throw err;
+    console.log('Connection successful!');
+    resetData();
     products();
 });
+// FUNCTIONS
+// ==========================================================================================
 
-function promptManagerAction() {
-
+var resetData = function() {
+addInventory = [];
+};
     //prompt manager to selet an option
-    inquirer.prompt([
-        {
+    var displayInventory
+    inquirer.prompt({
         type: "list",
         name: "option",
         message: "Select an option:\n",
-        choices: ["View Products for Sale", "View Low Inventory",  "Add to Inventory", "Add New Product"],
-        filter: function(val) {
-            if (val === "View Products for Sale") {
-                return "sale";
-            }else if (val === "View Low Inventory") {
-                return "lowInventory";
-            }else if (val === "Add to Inventory") {
-                return "addInventory";
-            }else if (val === "Add New Product") {
-                return "newProduct";
-            }else {
+        choices: [
+            "View Products for Sale", 
+            "View Low Inventory",  
+            "Add to Inventory", 
+            "Add New Product"
+        ],
+    }).then((answer) => {
+        switch (answer.action) {
+            case 'View Products for Sale':
+                viewProductsSale();
+                break;
+            case 'View Low Inventory':
+                viewLowInventory();
+                break;
+            case 'Add to Inventory':
+                addInventory();
+                break;
+            case 'Add New Product':
+                addNewProduct();
+                break;
                 console.log("ERROR: Unsupported operation!");
-                exit(1);
-                
+                // exit(1);
             }
-        }
-    }
-]).then(function(input) {
-    if(input.option === "sale") {
-        displayInventory();
-    } else if (input.option === "lowInventory") {
-        displayLowInventory();
-    } else if (input.option === "addInventory") {
-        addInventory();
-    }else if (input.option === "newProduct") {
-        createNewProduct();
-    }else{
-        console.log("ERROR: Unsupported operation!");
-        exit(1);
-    }
-})
-}
+        });
 
+var viewProductsSale = function() {
+    connection.query('SELECT * FROM products', (err, res) => {
+console.log("");
+    });
+}
 // Inventory: retrieve the current inventory from the database and output 
-function displayInventory() {
-    queryStr = "SELECT * FROM products";
+var displayInventory = function() {
+    connection.query('SELECT * FROM products', (err, res) => {
+
+    });
     connection.query(queryStr, function(err, data) {
         if (err) throw err;
 
