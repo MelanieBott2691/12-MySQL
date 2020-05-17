@@ -28,3 +28,9 @@
 
 #### Screenshots through the application
 
+##### Create Database
+![](screenshots/customerinsufficient.png)
+
+##### Customer.js
+<img src="/screenshots/customerinsufficient.png" width="400">
+<img src="/screenshots/customerordercomplete.png" width="400">
