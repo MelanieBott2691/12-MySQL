@@ -6,42 +6,28 @@ var inquirer = require("inquirer");
 // Define connections
 var connection = mysql.createConnection( {
     host: "localhost",
+    port: 8889,
     user: "root",
     password: "root",
-    port: 8889,
     database: "bamazon"
 });
 
 
-// validate input makes sure tha the user is supplying only postive integers for tehir inputs
-function validateInput(value) {
-    var integer = Number.isInteger(parseFloat(value));
-    var sign = Math.sign(value);
 
-    if (integer && (sign === 1)) {
-        return true;
-    }else{
-        return "Please enter a whole number";
-    }
-}
 // prompt user will prompt the user for the item/quanityt they would like to promptUserPurchase
 
-// prpompt user to select an item
+// prompt user to select an item
 function promptUserPurchase() {
     inquirer.prompt([
         {
     type: 'input',
     name: 'item_id',
     message: 'Please enter the ID of product you would like to purchase.',
-    validate: validateInput,
-    filter: Number
 },
 {
     type: 'input',
     name: 'stock_quantity',
     message: 'How many units would you like to purchase?',
-    validate: validateInput,
-    filter: Number
 }
     ]).then(function(input) {
         var item = input.item_id;
@@ -58,7 +44,8 @@ function promptUserPurchase() {
                 if (quantity <= productData.stock_quantity) {
                     console.log("Congratulations! The product is available");
                     var updateQueryString = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;
-            //    update inventory
+           
+                    //    update inventory
             connection.query(updateQueryString, function(err, data) {
                 if (err) throw err;
                 
@@ -85,26 +72,9 @@ function displayInventory() {
 connection.query(queryString, function(err, data) {
     if (err) throw err;
     console.log("Existing Inventory: ");
-    console.log("..........................\n");
-
-    // var strOut = " ";
-    // for (var i = 0; i < data.length, i++) 
-    // {
-    //     strOut = "";
-    //     strOut += "Item ID: " + data[i].item_id + ' // ';
-    //     strOut += "Product Name: " + data[i].product_name + ' // ';
-    //     strOut += "Department: " + data[i].department_name + ' // ';
-    //     strOut += "Price: $" + data[i].price + '\n';
-    //     console.log(strOut);
-
-    // }
-
-// connection.end();
-
-console.log("-----------------------------------------\n");
+    console.log("-----------------------------------------\n");
 
 promptUserPurchase();
-
 })
 }
 function runBamazon(){
