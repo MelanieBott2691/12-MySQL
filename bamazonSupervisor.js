@@ -3,6 +3,7 @@
 // call for dependencies 
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var table = require("cli-table");
 
 // Define connections
 var connection = mysql.createConnection( {
@@ -13,17 +14,28 @@ var connection = mysql.createConnection( {
     database: "bamazon"
 });
 
-function promptManager() {
+connection.connect(function(err) {
+if (err) throw err;
+console.log("Success!");
+departments();
+});
 
-    //prompt manager to selet an option
-    inquirer.prompt([
-        type:
-        name:
-        message:
-        choices:
-    
-    ])
+// department_id, department_name, over_head_costs from departments table
+function departments() {
+    connection.query("SELECT * FROM departments", function(err, res) {
+        if (err) throw err;
+        console.log(res[0].department_name);
+    });
 }
+    //prompt manager to selet an option
+//     inquirer.prompt([
+//         type:
+//         name:
+//         message:
+//         choices:
+    
+//     ])
+// }
 
 // trigger the appropriate action based on the user input
 // Retrieve the current inventory from the databse and output it to the console
@@ -42,9 +54,9 @@ function promptManager() {
 
 
 
-console.log("\n-----------------------------------------\n");
+// console.log("\n-----------------------------------------\n");
 // end the database connection
-connection.end();
+// connection.end();
 
 // validate makes sure that the user is supplying only positive integers for their inputs
 
@@ -67,7 +79,7 @@ connection.end();
 // Update the inventory
 
 // end database connection
-connection.end();
+// connection.end();
 
 // createNewProduct will guide the user in adding a new product to the inventory
 
@@ -79,12 +91,12 @@ connection.end();
 // Add new product to the db
 
 // End the database connection
-connection.end();
+// connection.end();
 
 // runBamazon will execute the main application logic
-function runBamazon(){
+// function runBamazon(){
     // prompt manager input
-promptManager();
-}
+// promptManager();
+// }
 // run application
-runBamazon();
+// runBamazon();
