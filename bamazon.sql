@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS products (
 DESCRIBE products;
 
 INSERT INTO products (product_name, department_name, price, stock_quantity) 
-VALUES ('Mechanical Pencil', 'Office Products', 4.99, 250), 
+VALUES ('Mechanical Pencil', 'Office Products', 4.99, 250),
 ('Notepad', 'Office Products', 2.99, 300),
 ('Stapler', 'Office Products', 12.99, 325),
 ('Ruler', 'Office Products', 1.99, 400),
@@ -32,20 +32,28 @@ VALUES ('Mechanical Pencil', 'Office Products', 4.99, 250),
 ('Garden Sprinkler', 'Home & Garden', 19.99, 190),
 ('Barrel Planter', 'Home & Garden', 25.95, 250);
 
-SELECT product_name, department_name, price, stock_quantity
-FROM products;
+SELECT * FROM products;
+
+USE bamazon;
 
 CREATE TABLE departments (
-department_id INT NOT NULL AUTO_INCREMENT,
-	department_name TEXT NOT NULL
+	department_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	department_name TEXT NOT NULL,
 	over_head_costs DECIMAL (10,4) NOT NULL,
-	PRIMARY KEY (department_id)
+	product_sales VARCHAR (6)
 	);
-	
+
+UPDATE departments
+SET over_head_costs
+WHERE DECIMAL (10, 2);
+
+DESCRIBE departments;
+
 INSERT INTO departments (department_name, over_head_costs)
 VALUES ('Office Products', 800),
 ('Grocery', 4000),
 ('Clothing', 4000),
 ('Home & Garden', 8000);
 
+SELECT * FROM departments;
 
