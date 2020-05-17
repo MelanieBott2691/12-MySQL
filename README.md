@@ -26,15 +26,24 @@
 
 
 
-#### Screenshots through the application
+### Screenshots Of Application
 
-##### Create Database
+#### Create Database
 <img src="screenshots/sql.png" width="600">
 
-##### bamazonCustomer.js
+#### bamazonCustomer.js
 <img src="screenshots/customerinsufficient.png" width="600">
 <img src="screenshots/customerordercomplete.png" width="600">
 
-##### bamazonManager.js
+#### bamazonManager.js
 <img src="screenshots/managerselect.png" width="600">
 <img src="screenshots/managerlow.png" width="600">
+
+#### SQL
+##### Products Table
+<img src="screenshots/sql_productsTable.png" width="600">
+<img src="screenshots/sql_products.png" width="600">
+
+##### Departments Table
+<img src="screenshots/sql_departmentTable.png" width="600">
+<img src="screenshots/sql_departments.png" width="600">
