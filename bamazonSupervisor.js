@@ -28,7 +28,7 @@ connection.connect((err) => {
 // FUNCTIONS
 // =================================================================================
 var resetData = function() {
-   
+
 };
 
 var displayMenu = function() {
@@ -39,7 +39,7 @@ var displayMenu = function() {
         choices: [
             'View Departments',
             'View Product Sales by Department',
-            'Add New Product'
+            'Create New Department'
         ]
     }).then((answer) => {
         switch (answer.action) {
