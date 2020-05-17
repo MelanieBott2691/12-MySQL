@@ -1,12 +1,12 @@
 # 12-MySQL
 
-## Node.js & MySQL
+# Node.js & MySQL
 
-### Overview
+## Overview
 - This CLI App takes in orders from customers and depletes stock from the store's inventory similar to an Amazon-like storefront using MySQL.
 - The app tracks product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
 
-### Instructions
+## Instructions
 1. Created a MySQL Database called bamazon
 2. Created two tables inside of the database called products and departments
   - The products table holds each of the following columns:
@@ -26,35 +26,41 @@
   - bamazonManager.js (Running this application will list a set of menu options from View Products for Sale, View Low Inventory, Add to Inventory, Add New Product)
   - bamazonSupervisor.js (Running this application will list a set of menu options that include View Product Sales by Department and Create New Department)
 
-### Installations
+## Installations
 - database sql
 - node.js
 - npm packages
 - mysql
 - inquirer
 
-### Screenshots Of Application
+## Screenshots Of Application
 
-#### Create Database
+### Create Database
 <img src="screenshots/sql.png" width="600">
 
 
-#### bamazonCustomer.js
+### bamazonCustomer.js
 <img src="screenshots/customerinsufficient.png" width="600">
 <img src="screenshots/customerordercomplete.png" width="600">
 
 
-#### bamazonManager.js
+### bamazonManager.js
 <img src="screenshots/managerselect.png" width="600">
 <img src="screenshots/managerlow.png" width="600">
 
 
-#### SQL
-##### Products Table
+### bamazonSupervisor.js
+<img src="screenshots/createnewdepartment.png" width="600">
+<img src="screenshots/viewdepartments.png" width="600">
+
+
+
+### SQL
+#### Products Table
 <img src="screenshots/sql_productsTable.png" width="600">
 <img src="screenshots/sql_products.png" width="600">
 
 
-##### Departments Table
+#### Departments Table
 <img src="screenshots/sql_departmentTable.png" width="600">
 <img src="screenshots/sql_departments.png" width="600">
