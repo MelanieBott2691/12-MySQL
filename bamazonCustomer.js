@@ -32,20 +32,20 @@ function promptUserPurchase() {
         {
     type: 'input',
     name: 'item_id',
-    message: 'Please enter the Item ID of item you wish to purchase',
+    message: 'Please enter the ID of product you would like to purchase.',
     validate: validateInput,
     filter: Number
 },
 {
     type: 'input',
-    name: 'quantity',
-    message: 'Please enter amount of items you wish to purchase',
+    name: 'stock_quantity',
+    message: 'How many units would you like to purchase?',
     validate: validateInput,
     filter: Number
 }
     ]).then(function(input) {
         var item = input.item_id;
-        var quantity = input.quantity;
+        var quantity = input.stock_quantity;
         
         var queryString = 'SELECT * FROM products WHERE ?';
         connection.query(queryString, {item_id: item}, function(err, data) {
@@ -69,8 +69,8 @@ function promptUserPurchase() {
                 connection.end();
             })
                 } else {
-                    console.log('Sorry, there is not enough product in stock, your order can not be placed as is.');
-					console.log('Please modify your order.');
+                    console.log('Insufficient quantity!');
+					// console.log('Please modify your order.');
 					console.log("\n---------------------------------------------------------------------\n");
 
 					displayInventory();
@@ -87,16 +87,17 @@ connection.query(queryString, function(err, data) {
     console.log("Existing Inventory: ");
     console.log("..........................\n");
 
-    var strOut = " ";
-    for (var i = 0; i < data.length, i++) {
-        strOut = "";
-        strOut += "Item ID: " + data[i].item_id + ' // ';
-        strOut += "Product Name: " + data[i].product_name + ' // ';
-        strOut += "Department: " + data[i].department_name + ' // ';
-        strOut += "Price: $" + data[i].price + '\n';
-        console.log(strOut);
+    // var strOut = " ";
+    // for (var i = 0; i < data.length, i++) 
+    // {
+    //     strOut = "";
+    //     strOut += "Item ID: " + data[i].item_id + ' // ';
+    //     strOut += "Product Name: " + data[i].product_name + ' // ';
+    //     strOut += "Department: " + data[i].department_name + ' // ';
+    //     strOut += "Price: $" + data[i].price + '\n';
+    //     console.log(strOut);
 
-    }
+    // }
 
 // connection.end();
 

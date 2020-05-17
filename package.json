@@ -4,7 +4,10 @@
   "description": "bamazon",
   "main": "bamazonCustomer.js",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "fs": "0.0.1-security",
+    "inquirer": "^7.1.0",
+    "mysql": "^2.18.1",
+    "require": "^2.4.20"
   },
   "devDependencies": {},
   "scripts": {
