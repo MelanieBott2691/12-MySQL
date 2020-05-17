@@ -11,6 +11,11 @@ var connection = mysql.createConnection( {
     database: "bamazon"
 });
 
+connection.connect(function(err) {
+    if (err) throw err;
+    products();
+});
+
 function promptManagerAction() {
 
     //prompt manager to selet an option
@@ -32,6 +37,7 @@ function promptManagerAction() {
             }else {
                 console.log("ERROR: Unsupported operation!");
                 exit(1);
+                
             }
         }
     }
