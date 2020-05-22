@@ -5,10 +5,12 @@
   "main": "bamazonCustomer.js",
   "dependencies": {
     "cli-table": "^0.3.1",
+    "console.table": "^0.10.0",
     "fs": "0.0.1-security",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "require-stack": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {
